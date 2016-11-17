@@ -15,19 +15,19 @@ Dependencies:
 
 ## installation ##
 
-1. install node if not already
-2. install node-plantuml
+- install node if not already
+- install node-plantuml
 ```
 npm install -g node-plantuml
 ```
-3. install fswatch
+- install fswatch
 ```
 # tested on osx
 brew install fswatch
 ```
-4. Copier le script [imgcat](https://raw.githubusercontent.com/gnachman/iTerm2/master/tests/imgcat) dans ton fichier des executable de ton user. In case of my Mac $HOME/bin/imgcat.
+- Copier le script [imgcat](https://raw.githubusercontent.com/gnachman/iTerm2/master/tests/imgcat) dans ton fichier des executable de ton user. In case of my Mac $HOME/bin/imgcat.
 
-5. Copier ce script sous le nom du script plant uml dans le dossier des executable in my case $HOME/bin/pumlG.
+- Copier ce script sous le nom du script plant uml dans le dossier des executable in my case $HOME/bin/pumlG.
 ```bash
 #!/bin/bash
 input="$(pwd)/$1"
@@ -35,12 +35,18 @@ export PUML_G_OUTPUT="$(pwd)/$2"
 fswatch -0 "$input" | xargs -0 -I{} puml generate "{}" -o "$PUML_G_OUTPUT" & # puml generate {} -o $PUML_G_OUTPUT & #puml generate {} > "$PUML_G_OUTPUT" &
 fswatch -0 "$PUML_G_OUTPUT" | xargs -0 -I{} imgcat "{}" &
 ```
-
-6. refresh $PATH CTRL+ENTER in osx
+- Add executable writes on imgcat and plantuml generator script
+- refresh $PATH CTRL+ENTER in osx
 
 ## Usage ##
 
 ```
-pumlG {Plantuml file} {png file}
+{script name} {Plantuml file} {png file}
+#example
+pumlG test.puml test.png
 ```
+
+### snippets ###
+
+If using UltiSnips in Vim, you can use snippets in plantuml.snippets.
 

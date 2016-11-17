@@ -1,0 +1,25 @@
+global !p
+def complete(t, opts):
+	if t:
+		opts = [m[len(t):] for m in opts if m.startswith(t)]
+	if len(opts) == 1:
+		return opts[0]
+	return "(" + '|'.join(opts) + ')'
+
+def completeCard(t):
+	return complete(t, ['1','0..1','0..n','n'])
+
+def completeDir(t):
+	return complete(t,['left','up','right','down'])
+endglobal
+
+snippet class
+class ${1:Name} {
+	$0
+}
+endsnippet
+
+snippet message
+${1:source} "$4`!p snip.rv=completeCard(t[4])`" -$3`!p snip.rv=completeDir(t[3])`- "$5`!p snip.rv=completeCard(t[5])`" ${2:dest} : ${6:text} > 
+endsnippet
+
