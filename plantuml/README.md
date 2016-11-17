@@ -46,6 +46,15 @@ fswatch -0 "$PUML_G_OUTPUT" | xargs -0 -I{} imgcat "{}" &
 pumlG test.puml test.png
 ```
 
+![](example.png)
+
+### kill ###
+```
+pkill fswatch
+```
+
+
+
 ### snippets ###
 
 If using UltiSnips in Vim, you can use snippets in plantuml.snippets.
