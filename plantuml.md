@@ -36,5 +36,11 @@ fswatch -0 "$input" | xargs -0 -I{} puml generate "{}" -o "$PUML_G_OUTPUT" & # p
 fswatch -0 "$PUML_G_OUTPUT" | xargs -0 -I{} imgcat "{}" &
 ```
 
+6. refresh $PATH CTRL+ENTER in osx
 
+## Usage ##
+
+```
+pumlG {Plantuml file} {png file}
+```
 

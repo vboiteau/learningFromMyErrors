@@ -1,0 +1,25 @@
+@startuml
+skinparam style strictuml
+hide empty members
+abstract "Event Handler" as EH {
+{abstract} handle_event(type)
+{abstract} get_handle()
+}
+class "Concrete\nEvent\nHandler" extends EH
+class Handle
+class "Synchronous Event\nDemultiplexer" as SED {
+select()
+}
+class test {
+    teiqte
+}
+class "Initiation Dispatcher" as ID {
+handle_events()
+register_handler(h)
+remove_handler(h)
+}
+ID "1" -> "N" EH : handlers
+EH -left-> Handle : owns
+SED -up-> Handle : notifies
+ID -down-> SED : uses
+@enduml
