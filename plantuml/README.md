@@ -32,7 +32,7 @@ brew install fswatch
 #!/bin/bash
 input="$(pwd)/$1"
 export PUML_G_OUTPUT="$(pwd)/$2"
-fswatch -0 "$input" | xargs -0 -I{} puml generate "{}" -o "$PUML_G_OUTPUT" & # puml generate {} -o $PUML_G_OUTPUT & #puml generate {} > "$PUML_G_OUTPUT" &
+fswatch -0 "$input" | xargs -0 -I{} puml generate "{}" -o "$PUML_G_OUTPUT" &
 fswatch -0 "$PUML_G_OUTPUT" | xargs -0 -I{} imgcat "{}" &
 ```
 - Add executable writes on imgcat and plantuml generator script
